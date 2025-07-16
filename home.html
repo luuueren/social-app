@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- IMPORT BOOTSTRAP  -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+    <style>
+        body {
+            background: #f0ecff;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- LOGIN MODALS  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control" id="input-username">
+                        </div>
+                        <div class=" mb-3">
+                            <label for="message-text" class="col-form-label">Password:</label>
+                            <!-- <textarea class="form-control" id="message-text"></textarea> -->
+                            <input type="password" class="form-control" name="" id="input-password">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginBtnClicked()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN LOGIN MODALS  -->
+
+    <!-- NAVBAR  -->
+    <div class="container">
+        <div class="d-flex justify-content-center ">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Tarmeez</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Profile</a>
+                                </li>
+                            </ul>
+
+                            <div class="">
+                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Login</button>
+                                <button type="button" class="btn btn-outline-success">Register</button>
+                                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- NAVBAR -->
+
+    <!-- MAIN CONTENT  -->
+    <div class="container" style="height: 1000px;">
+        <div class="d-flex justify-content-center mt-5">
+            <div class="col-9">
+                <div id="posts">
+                    <!-- my-2 : mt and mb  -->
+                    <div class="card shadow ">
+                        <div class="card-header">
+                            <img src="./profile-pics/images.jpg" alt class="rounded-circle border border border-3"
+                                style="width: 40px;height: 40px;">
+                            <span style="font-weight: bold;">@aymen</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="./placeholders/1310203.png" alt="">
+
+                            <h6 style="color: gray;" class="mt-1">2 min ago</h6>
+                            <h5>hello world</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda porro laboriosam
+                                illum, eveniet laudantium autem quidem. Consectetur amet dolor illum quasi, quisquam
+                                odit laudantium. Voluptatem odio voluptatum molestiae ut fugit.</p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path
+                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                                <span>(2) comment</span>
+                                <!-- <span style="background: chartreuse;border-radius: 60px;padding: 5px 20px;">tag</span>
+                                <span style="background: chartreuse;border-radius: 60px;padding: 5px 20px;">tag</span>
+                                <span style="background: chartreuse;border-radius: 60px;padding: 5px 20px;">tag</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow ">
+                        <div class="card-header">
+                            <img src="./profile-pics/images.jpg" alt class="rounded-circle border border border-3"
+                                style="width: 40px;height: 40px;">
+                            <span style="font-weight: bold;">@aymen</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="./placeholders/1310203.png" alt="">
+
+                            <h6 style="color: gray;" class="mt-1">2 min ago</h6>
+                            <h5>hello world</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda porro laboriosam
+                                illum, eveniet laudantium autem quidem. Consectetur amet dolor illum quasi, quisquam
+                                odit laudantium. Voluptatem odio voluptatum molestiae ut fugit.</p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path
+                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                                <span>(2) comment</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <img src="./profile-pics/images.jpg" alt class="rounded-circle border border border-3"
+                                style="width: 40px;height: 40px;">
+                            <span style="font-weight: bold;">@aymen</span>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="./placeholders/1310203.png" alt="">
+
+                            <h6 style="color: gray;" class="mt-1">2 min ago</h6>
+                            <h5>hello world</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda porro laboriosam
+                                illum, eveniet laudantium autem quidem. Consectetur amet dolor illum quasi, quisquam
+                                odit laudantium. Voluptatem odio voluptatum molestiae ut fugit.</p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path
+                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                                <span>(2) comment</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <img id="apiprofile" src="./profile-pics/images.jpg" alt
+                                class="rounded-circle border border border-3" style="width: 40px;height: 40px;">
+                            <span id="apispan" style="font-weight: bold;">@aymen</span>
+                        </div>
+                        <div class="card-body">
+                            <img id="apipic" class="w-100" src="./placeholders/1310203.png" alt="">
+
+                            <h6 id="apitime" style="color: gray;" class="mt-1">2 min ago</h6>
+                            <h5 id="apititle">hello world</h5>
+                            <p id="apibody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda porro
+                                laboriosam
+                                illum, eveniet laudantium autem quidem. Consectetur amet dolor illum quasi, quisquam
+                                odit laudantium. Voluptatem odio voluptatum molestiae ut fugit.</p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path
+                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                                <span id="apicomment">(2) comment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MAIN CONTENT -->
+</body>
+
+<script>
+    let content = `
+    <div class="card shadow">
+                        <div class="card-header">
+                            <img id="apiprofile" src="" alt="" class="rounded-circle border border border-3" style="width: 40px;height: 40px;">
+                            <span id="apispan" style="font-weight: bold;"></span>
+                        </div>
+                        <div class="card-body">
+                            <img id="apipic" class="w-100" src="" alt="">
+
+                            <h6 id="apitime" style="color: gray;" class="mt-1"></h6>
+                            <h5 id="apititle"></h5>
+                            <p id="apibody"></p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path
+                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                                <span id="apicomment"></span>
+                            </div>
+                        </div>
+                    </div>
+`
+
+    const baseUrl = "https://tarmeezacademy.com/api/v1"
+    axios.get(`${baseUrl}/posts`, {
+        // params: {
+        //     ID: 12345
+        // }
+    })
+        .then(function (response) {
+            // console.log(response)
+            let posts = response.data.data;
+            console.log(posts)
+            document.getElementById("posts").innerHTML = ""
+            for (let post of posts) {
+
+                // const postTitle = ""
+                // if (post.title != "") {
+                //     postTitle = post.title
+                // }
+
+                document.getElementById("posts").innerHTML += `
+            <div class="card shadow">
+                        <div class="card-header">
+                            <img id="apiprofile" src="${post.author.profile_image}" alt="" class="rounded-circle border border border-3" style="width: 40px;height: 40px;">
+                            <span id="apispan" style="font-weight: bold;">${post.author.username}</span>
+                        </div>
+                        <div class="card-body">
+                            <img id="apipic" class="w-100" src="${post.image}" alt="">
+
+                            <h6 id="apitime" style="color: gray;" class="mt-1">${post.created_at}</h6>
+                            <h5 id="apititle">${post.title != null ? post.title : ""}</h5>
+                            <p id="apibody">${post.body}</p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path
+                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                </svg>
+                                <span id="apicomment">${post.comments_count}</span>
+                            </div>
+                        </div>
+                    </div>
+            `
+            }
+
+            console.log(response)
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+
+
+    function loginBtnClicked() {
+        const username = document.getElementById("input-username").value
+        const password = document.getElementById("input-password").value
+        const params = {
+            "username": username,
+            "password": password
+        }
+
+        axios.post(`${baseUrl}/login`, params)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+
+</script>
+
+</html>
